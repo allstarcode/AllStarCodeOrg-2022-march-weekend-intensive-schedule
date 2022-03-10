@@ -1,0 +1,175 @@
+$main-purple: #a285dc
+$main-purple-d: #6437BE
+$main-yellow: #ebab24
+$main-yellow-d: #BB8511
+$main-violet: #5954e5
+$dark-main-violet:#302ADF
+$main-green: #9dd052
+$main-green-d: #669027
+$main-red: #ea5d4f
+$main-red-d: #C92618
+$asc-blue: #51c1e9
+$light-asc-blue: #A4DFF4
+$dark-asc-blue: #147DA3
+$main-dark: #121212
+$misc-dark: #3c4043
+$misc-dark-d: #303336
+$main-link-orange: #FF8C42
+
+@import 'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
+// font-family: 'Ubuntu', sans-serif;
+
+@mixin overlay($percentage)
+  background-color: rgba(255, 255, 255, $percentage)
+
+@mixin pseudo-overlay()
+  content: ''
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  position: absolute
+
+@mixin shadow()
+  box-shadow: -1px 10px 10px 1px rgba(0,0,0,0.56)
+
+html
+  background-color: $main-dark
+  color: #fff
+
+.title
+  color: $light-asc-blue
+  font-weight: bold
+  font-family: 'Ubuntu', sans-serif
+  text-shadow:  1px 1px $dark-asc-blue, 2px 2px $dark-asc-blue, 3px 3px $dark-asc-blue
+
+h2
+  font-size: 2.75rem !important
+
+.title:hover
+  text-shadow:  1px 1px $dark-asc-blue, 2px 2px $dark-asc-blue, 3px 3px $dark-asc-blue, 4px 4px $dark-asc-blue, 5px 5px $dark-asc-blue, 6px 6px $dark-asc-blue, 7px 7px $dark-asc-blue
+
+h2
+  margin: 0
+
+// Card styling
+.sched-item
+  @include shadow()
+  color: #fff
+  background-color: rgba(255, 255, 255, 0.12) !important
+  border-radius: 35px
+
+.card-title
+  font-family: 'Ubuntu', sans-serif
+  font-weight: bold !important
+  font-size: 26px
+
+.card-content > p
+  font-size: 22px
+  color: #FFFF70
+
+.card-action
+  border-bottom-left-radius: 35px !important
+  border-bottom-right-radius: 35px !important
+  font-size: 17px
+  text-decoration: underline
+  min-height: 58px
+
+.hidden
+  display: none
+
+.sched-card
+  margin-bottom: 5px !important
+
+li
+  margin-bottom: 10px
+
+// Schedule Block Coloring, the -d at the end of some classes just stands for "dark"
+.bg-asc-blue
+  background-color: $asc-blue !important
+
+.bg-asc-blue-d
+  background-color: $dark-asc-blue !important
+
+.bg-violet
+  background-color: $main-violet !important
+
+.bg-violet-d
+  background-color: $dark-main-violet !important
+
+.bg-dark
+  background-color: $misc-dark !important
+
+.bg-dark-d
+  background-color: $misc-dark-d !important
+
+.bg-purple
+  background-color: $main-purple !important
+
+.bg-purple-d
+  background-color: $main-purple-d !important
+
+.bg-yellow
+  background-color: $main-yellow !important
+
+.bg-yellow-d
+  background-color: $main-yellow-d !important
+
+.bg-green
+  background-color: $main-green !important
+
+.bg-green-d
+  background-color: $main-green-d !important
+
+.bg-red
+  background-color: $main-red !important
+
+.bg-red-d
+  background-color: $main-red-d !important
+
+// Collapsible element styling
+.collapsible
+  @include shadow()
+
+.collapsible, .collapsible-header, .collapsible-body
+  border: none
+
+.collapsible-header
+  background-color: $main-dark
+  position: relative
+
+.collapsible-body
+  position: relative
+  background-color: $main-dark
+
+.collapsible-body::before
+  @include overlay(0.08)
+  @include pseudo-overlay()
+
+.collapsible-header::before
+  @include overlay(0.12)
+  @include pseudo-overlay()
+
+.keyboard-focused .collapsible-header:focus
+  background-color: $main-dark !important
+
+#titleAsterik
+  height: 75px
+  width: 75px
+  position: relative
+
+
+ul.collection > li.collection-item:last-child
+  border-bottom: none !important
+
+.collection-item
+  background-color: $main-dark !important
+  border-bottom: 1px solid $asc-blue !important
+
+.collection-item::before
+  @include overlay(0.01)
+  @include pseudo-overlay()
+  pointer-events: none
+
+ul.collection > li.collection-item > a
+  color: $main-link-orange
