@@ -20,21 +20,21 @@ document.addEventListener('DOMContentLoaded', function () {
   let thisYear = now.getFullYear();
 
   if (thisYear === 2022) {
-    if (thisMonth !== 1) {
+    if (thisMonth !== 2) {
       delNodes(day1Links);
       delNodes(day2Links);
-    } else if (thisMonth === 1) {
-      if (today < 5) {
+    } else if (thisMonth === 2) {
+      if (today < 19) {
         delNodes(day1Links);
         delNodes(day2Links);
-      } else if (today < 6) {
+      } else if (today < 20) {
         delNodes(day2Links);
       }
     }
   } else if (thisYear < 2022) {
     delNodes(day1Links);
-      delNodes(day2Links);
-  }  else {
+    delNodes(day2Links);
+  } else {
     // If it's not less or equal it must be greater
   }
 
