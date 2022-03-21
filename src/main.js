@@ -11,28 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const day1Links = document.querySelectorAll('.day-1 > .card-action > a');
   const day2Links = document.querySelectorAll('.day-2 > .card-action > a');
 
-  let now = new Date();
-  let today = now.getDate();
-  let thisMonth = now.getMonth();
-  let thisYear = now.getFullYear();
+  let day1Date = dayjs(new Date(2022, 2, 19));
+  let day2Date = dayjs(new Date(2022, 2, 20));
 
-  if (thisYear === 2022) {
-    if (thisMonth !== 2) {
-      delNodes(day1Links);
-      delNodes(day2Links);
-    } else if (thisMonth === 2) {
-      if (today < 19) {
-        delNodes(day1Links);
-        delNodes(day2Links);
-      } else if (today < 20) {
-        delNodes(day2Links);
-      }
-    }
-  } else if (thisYear < 2022) {
+  const today = dayjs();
+
+  if (today.valueOf() <= day1Date.valueOf()) {
     delNodes(day1Links);
     delNodes(day2Links);
-  } else {
-    // If it's not less or equal it must be greater
+  } else if (today.valueOf() <= day2Date()) {
+    delNodes(day2Links);
   }
 
   const activities = document.querySelectorAll('.sched-item > .card-content');
